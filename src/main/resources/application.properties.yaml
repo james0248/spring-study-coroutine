@@ -1,0 +1,5 @@
+spring:
+  r2dbc:
+    url: r2dbc:mysql://localhost:3306/ecommerce?characterEncoding=utf8&serverTimezone=UTC
+    username: scatterlab
+    password: springstudy
