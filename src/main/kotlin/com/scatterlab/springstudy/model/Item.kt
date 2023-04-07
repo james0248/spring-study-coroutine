@@ -6,7 +6,7 @@ import org.springframework.data.relational.core.mapping.Table
 
 @Table("items")
 class Item(
-    @Id val id: Long,
+    @Id val id: String,
     @Column(value = "name") val name: String,
     @Column(value = "price") val price: Int,
     @Column(value = "stock") val stock: Int,
