@@ -25,11 +25,8 @@ dependencies {
 
     implementation("org.springframework.boot", "spring-boot-starter-data-r2dbc")
     implementation("org.postgresql", "r2dbc-postgresql")
-
-    implementation("org.liquibase", "liquibase-core", "4.17.2")
-    liquibaseRuntime("org.liquibase", "liquibase-core", "4.17.2")
-    liquibaseRuntime("mysql", "mysql-connector-java", "8.0.30")
-    liquibaseRuntime("info.picocli", "picocli", "4.7.0")
+    runtimeOnly("org.postgresql", "postgresql")
+    implementation("org.flywaydb", "flyway-core")
 
     testImplementation("org.springframework.boot", "spring-boot-starter-test")
     testImplementation("io.projectreactor", "reactor-test")
@@ -44,18 +41,4 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
-}
-
-liquibase {
-    activities.register("main") {
-        this.arguments = mapOf(
-            "classpath" to "$projectDir/src/main/resources",
-            "changeLogFile" to "db/db.changelog-master.yaml",
-            "url" to "jdbc:mysql://localhost:3306/ecommerce?characterEncoding=utf8&serverTimezone=UTC",
-            "username" to "scatteradmin",
-            "password" to "helloluda",
-            "driver" to "com.mysql.cj.jdbc.Driver"
-        )
-    }
-    runList = "main"
 }

@@ -5,6 +5,10 @@ spring:
     password: springstudy
     pool:
       max-size: 50
-  liquibase:
-    change-log: classpath:db/db.changelog-master.yaml
+  flyway:
     enabled: true
+    baseline-on-migrate: true
+    url: jdbc:postgresql://localhost:5433/ecommerce?characterEncoding=utf8&serverTimezone=UTC
+    user: ecommerce
+    password: springstudy
+
