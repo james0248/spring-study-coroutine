@@ -24,7 +24,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor")
 
     implementation("org.springframework.boot", "spring-boot-starter-data-r2dbc")
-    implementation("com.github.jasync-sql", "jasync-mysql", "2.1.23")
+    implementation("org.postgresql", "r2dbc-postgresql")
 
     implementation("org.liquibase", "liquibase-core", "4.17.2")
     liquibaseRuntime("org.liquibase", "liquibase-core", "4.17.2")

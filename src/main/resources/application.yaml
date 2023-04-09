@@ -1,4 +1,10 @@
 spring:
+  r2dbc:
+    url: r2dbc:postgresql://localhost:5433/ecommerce?characterEncoding=utf8&serverTimezone=UTC
+    username: ecommerce
+    password: springstudy
+    pool:
+      max-size: 50
   liquibase:
     change-log: classpath:db/db.changelog-master.yaml
     enabled: true
