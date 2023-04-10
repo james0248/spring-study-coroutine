@@ -3,10 +3,11 @@ package com.scatterlab.springstudy.model
 import org.springframework.data.annotation.Id
 import org.springframework.data.relational.core.mapping.Column
 import org.springframework.data.relational.core.mapping.Table
+import java.util.UUID
 
 @Table("items")
 class Item(
-    @Id val id: String,
+    @Id val id: UUID,
     @Column(value = "name") val name: String,
     @Column(value = "price") val price: Int,
     @Column(value = "stock") val stock: Int,
