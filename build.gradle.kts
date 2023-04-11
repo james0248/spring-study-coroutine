@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.0.5"
     id("io.spring.dependency-management") version "1.1.0"
+    id("org.liquibase.gradle") version "2.1.1"
     kotlin("jvm") version "1.7.22"
     kotlin("plugin.spring") version "1.7.22"
 }
@@ -16,13 +17,19 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
-    implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("io.projectreactor:reactor-test")
+    implementation("org.springframework.boot", "spring-boot-starter-webflux")
+    implementation("com.fasterxml.jackson.module", "jackson-module-kotlin")
+    implementation("io.projectreactor.kotlin", "reactor-kotlin-extensions")
+    implementation("org.jetbrains.kotlin", "kotlin-reflect")
+    implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor")
+
+    implementation("org.springframework.boot", "spring-boot-starter-data-r2dbc")
+    implementation("org.postgresql", "r2dbc-postgresql")
+    runtimeOnly("org.postgresql", "postgresql")
+    implementation("org.flywaydb", "flyway-core")
+
+    testImplementation("org.springframework.boot", "spring-boot-starter-test")
+    testImplementation("io.projectreactor", "reactor-test")
 }
 
 tasks.withType<KotlinCompile> {
