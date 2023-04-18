@@ -1,6 +1,6 @@
 package com.scatterlab.springstudy.dto
 
-data class UserSignupRequest(
+data class CreateAccountRequest(
     val name: String,
     val email: String,
     val password: String,

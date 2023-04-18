@@ -1,12 +1,12 @@
 package com.scatterlab.springstudy.model
 
-import com.scatterlab.springstudy.dto.UserSignupRequest
+import com.scatterlab.springstudy.dto.CreateAccountRequest
 import org.springframework.data.relational.core.mapping.Table
 import org.springframework.security.crypto.password.PasswordEncoder
 import java.util.UUID
 
-@Table("users")
-class User(
+@Table("accounts")
+class Account(
     val id: UUID,
     val name: String,
     val email: String,
@@ -15,7 +15,7 @@ class User(
     val role: Role,
 ) {
     companion object {
-        fun fromSignupRequest(dto: UserSignupRequest, passwordEncoder: PasswordEncoder) = User(
+        fun fromSignupRequest(dto: CreateAccountRequest, passwordEncoder: PasswordEncoder) = Account(
             id = UUID.randomUUID(),
             name = dto.name,
             email = dto.email,
