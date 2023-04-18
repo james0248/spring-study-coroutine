@@ -22,6 +22,7 @@ dependencies {
     implementation("io.projectreactor.kotlin", "reactor-kotlin-extensions")
     implementation("org.jetbrains.kotlin", "kotlin-reflect")
     implementation("org.jetbrains.kotlinx", "kotlinx-coroutines-reactor")
+    implementation("org.springframework.boot", "spring-boot-starter-security")
 
     implementation("org.springframework.boot", "spring-boot-starter-data-r2dbc")
     implementation("org.postgresql", "r2dbc-postgresql")
